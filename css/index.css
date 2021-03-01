@@ -13,6 +13,7 @@ body {
 }
 
 #app {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -26,7 +27,8 @@ body {
 	display: grid;
 	grid-template-columns: repeat(8, 1fr);
 	grid-template-rows: repeat(8, 1fr);
-	gap: 10px;
+	border: 10px solid #141414;
+	border-radius: 10px;
 }
 
 .field {
@@ -38,7 +40,7 @@ body {
 }
 
 .field.active {
-	background: #2086d4;
+	background: rgba(20, 20, 20, 0.2);
 }
 
 .hits-count {
@@ -70,6 +72,7 @@ body {
 	visibility: visible;
 	opacity: 1;
 	transition: transform 0.8s;
+	z-index: 10;
 }
 
 .modal.hidden {
@@ -96,12 +99,41 @@ body {
 
 .start-game {
 	position: absolute;
-	height: 150px;
-	width: 150px;
+	height: 100px;
+	width: 100px;
 	top: 50%;
 	left: 50%;
+	z-index: 50;
 	transform: translate(-50%, -50%);
 	border-radius: 50%;
 	cursor: pointer;
-	background: url('../images/start-game-icon.jpg') 0 0 / cover no-repeat;
+	background: url('../images/start-icon.png') 0 0 / cover no-repeat;
+}
+
+.background-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: #141414;
+	mix-blend-mode: overlay;
+}
+
+.background-video video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
 }

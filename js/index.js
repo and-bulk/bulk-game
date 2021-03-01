@@ -39,9 +39,6 @@ class Game {
 
 			this.hitsCount.textContent++;
 			event.target.classList.remove('active');
-
-			event.target.style.boxShadow = '0px 0px 30px 10px #0583e3';
-			setTimeout(() => (event.target.style.boxShadow = null), 300);
 		}
 	};
 
@@ -72,11 +69,14 @@ class Game {
 		audio.play();
 	}
 
-	startGame() {
+	startGame({ timeLeft }) {
 		const btn = document.querySelector('.start-game');
 
 		btn.addEventListener('click', () => {
 			this.isEnd = false;
+			this.hitsCount.textContent = 0;
+			this.timeLeft.textContent = timeLeft;
+
 			this.updatingTime();
 			this.fieldMoveSpeed(500);
 
@@ -90,10 +90,11 @@ class Game {
 		btn.addEventListener('click', () => {
 			this.isEnd = false;
 			this.modal.classList.add('hidden');
-			this.hitsCount.textContent = '0';
+			this.hitsCount.textContent = 0;
 			this.timeLeft.textContent = timeLeft;
 
 			this.updatingTime();
+			this.fieldMoveSpeed(500);
 		});
 	}
 
@@ -110,5 +111,7 @@ const game = new Game();
 
 document.addEventListener('DOMContentLoaded', () => {
 	game.addClassFields();
-	game.startGame();
+	game.startGame({
+		timeLeft: 180
+	});
 });
