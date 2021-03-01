@@ -36,7 +36,7 @@ body {
 	width: 100px;
 	background: #141414;
 	cursor: pointer;
-	transition: 0.3s ease-in;
+	transition: .5s ease-in;
 }
 
 .field.active {

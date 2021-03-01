@@ -37,6 +37,8 @@ class Game {
 		) {
 			this.bulkSound();
 
+
+			event.target.style.transition = '0s';
 			this.hitsCount.textContent++;
 			event.target.classList.remove('active');
 		}
