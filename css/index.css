@@ -20,6 +20,7 @@ body {
 	height: 100%;
 	font-family: sans-serif;
 	font-weight: 700;
+	color: #000;
 }
 
 .wrapper {
@@ -36,7 +37,7 @@ body {
 	width: 100px;
 	background: #141414;
 	cursor: pointer;
-	transition: .5s ease-in;
+	transition: 0.5s ease-in;
 }
 
 .field.active {
@@ -97,7 +98,7 @@ body {
 	cursor: pointer;
 }
 
-.start-game {
+.start-game-wrapper {
 	position: absolute;
 	height: 100px;
 	width: 100px;
@@ -105,9 +106,16 @@ body {
 	left: 50%;
 	z-index: 50;
 	transform: translate(-50%, -50%);
+}
+
+.start-game {
+	height: 100%;
+	width: 100%;
 	border-radius: 50%;
 	cursor: pointer;
 	background: url('../images/start-icon.png') 0 0 / cover no-repeat;
+	animation: animationStartBtn 3s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+		infinite alternate;
 }
 
 .background-video {
@@ -136,4 +144,14 @@ body {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
+}
+
+@keyframes animationStartBtn {
+	0% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(1.3);
+	}
 }
